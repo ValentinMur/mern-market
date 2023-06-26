@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'RAZA',
       slug: 'raza-food',
       category: 'food',
@@ -11,6 +12,7 @@ const data = {
       description: 'Perro Adulto Sabor Carne 21 (x Kg Suelto)',
     },
     {
+      _id: '2',
       name: 'PEDIGREE',
       slug: 'pedigree-food',
       category: 'food',
@@ -21,6 +23,7 @@ const data = {
       description: 'Adulto (etapa 2) Carne Pollo Y Cereal 21 (x Kg Suelto)',
     },
     {
+      _id: '3',
       name: 'DOGCHOW',
       slug: 'dogchow-food',
       category: 'food',
@@ -31,6 +34,7 @@ const data = {
       description: 'Adultos Minis Y Pequeños 21kg (x Kg Suelto)',
     },
     {
+      _id: '4',
       name: 'EXCELLENT',
       slug: 'excellent-food',
       category: 'food',
