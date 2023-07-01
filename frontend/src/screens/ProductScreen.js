@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { useContext, useEffect, useReducer } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import Rating from '../components/Rating';
+
 import { Helmet } from 'react-helmet-async';
 import MessageBox from '../components/MessageBox';
 import LoadingBox from '../components/LoadingBox';
@@ -28,6 +28,7 @@ const reducer = (state, action) => {
 };
 
 function ProductScreen() {
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
@@ -64,6 +65,7 @@ function ProductScreen() {
       type: 'CART_ADD_ITEM',
       payload: { ...product, quantity },
     });
+    navigate(`/cart`);
   };
 
   return loading ? (
@@ -88,12 +90,6 @@ function ProductScreen() {
               </Helmet>
               <h1>{product.name}</h1>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <Rating
-                rating={product.rating}
-                numReviews={product.numReviews}
-              ></Rating>
-            </ListGroup.Item>
             <ListGroup.Item>Precio : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
               Descripcion:
@@ -113,7 +109,7 @@ function ProductScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Status:</Col>
+                    <Col>Estado:</Col>
                     <Col>
                       {product.countInStock > 0 ? (
                         <Badge bg="success">En Stock</Badge>

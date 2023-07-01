@@ -55,7 +55,7 @@ function HomeScreen() {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <Row>
+          <Row className="bc-main">
             {products.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
